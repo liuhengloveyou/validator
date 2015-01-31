@@ -8,6 +8,8 @@ import (
 )
 
 type ValidateExample struct {
+	IdCard      string `validate:"idcard"`
+	Id2         int64  `validate:"idcard"`
 	Name        string `validate:"nonzero"`
 	Description string
 	Age         int    `validate:"min=18"`
@@ -26,12 +28,11 @@ func TestParseTags(t *testing.T) {
 		Age:         19,        // invalid as age is less than required 18
 	}
 
-	
-	// ve.Email = "@not.a.valid.email"
-	ve.Email = ""
+	ve.Email = "@not.a.valid.email"
 	ve.Address.City = "Some City" // valid
 	ve.Address.Street = ""        // invalid
-
+	ve.IdCard = "41289719870908876x"
+	ve.Id2 = 123
 
 	err := validator.Validate(ve)
 	fmt.Println(err)

@@ -186,7 +186,7 @@ func regex(v interface{}, param string) error {
 }
 
 func email(v interface{}, param string) error {
-	re := `\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*`
+	re := `^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$`
 	err := regex(v, re)
 	if err != nil {
 		return ErrEmail
@@ -194,6 +194,25 @@ func email(v interface{}, param string) error {
 	return nil
 }
 
+func phone(v interface{}, param string) error {
+	re := `^\d{3}-\d{8}|\d{4}-\d{7}$`
+	err := regex(v, re)
+	if err != nil {
+		return ErrPhone
+	}
+	return nil
+}
+
+func cellphone(v interface{}, param string) error {
+	re := `^1[3|4|5|8][0-9]\d{4,8}$`
+	err := regex(v, re)
+	if err != nil {
+		return ErrCellPhone
+	}
+	return nil
+}
+
+ 
 func asInt(param string) (int64, error) {
 	i, err := strconv.ParseInt(param, 0, 64)
 	if err != nil {

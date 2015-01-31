@@ -31,12 +31,15 @@ func init() {
 	defaultValidator = &Validator{
 		tagName: "validate",
 		validationFuncs: map[string]ValidationFunc{
-			"nonzero": nonzero,
-			"len":     length,
-			"min":     min,
-			"max":     max,
-			"regexp":  regex,
-			"email":   email,
+			"nonzero":   nonzero,
+			"len":       length,
+			"min":       min,
+			"max":       max,
+			"regexp":    regex,
+			"email":     email,
+			"phone":     phone,
+			"cellphone": cellphone,
+			"idcard": idcardCheck,
 		},
 	}
 

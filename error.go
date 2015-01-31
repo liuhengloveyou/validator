@@ -17,4 +17,7 @@ var (
 	ErrLen       = errors.New("长度不对")
 	ErrRegexp    = errors.New("模式不匹配")
 	ErrEmail     = errors.New("邮箱地址格式不正确")
+	ErrPhone     = errors.New("电话号码格式不正确")
+	ErrCellPhone = errors.New("手机号码格式不正确")
+	ErrIdCard    = errors.New("身份证号格式不正确")
 )
