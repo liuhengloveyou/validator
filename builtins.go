@@ -5,7 +5,6 @@ import (
 	"regexp"
 	"strconv"
 
-	"fmt"
 )
 
 func nonzero(v interface{}, param string) error {
@@ -168,7 +167,6 @@ func max(v interface{}, param string) error {
 }
 
 func regex(v interface{}, param string) error {
-	fmt.Println(">>>>>>", v, param)
 	s, ok := v.(string)
 	if !ok {
 		return ErrUnsupported

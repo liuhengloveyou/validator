@@ -39,7 +39,8 @@ func init() {
 			"email":     email,
 			"phone":     phone,
 			"cellphone": cellphone,
-			"idcard": idcardCheck,
+			"idcard":    idcardCheck,
+			"region":    regionCheck,
 		},
 	}
 

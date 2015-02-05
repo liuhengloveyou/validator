@@ -37,3 +37,21 @@ func TestParseTags(t *testing.T) {
 	err := validator.Validate(ve)
 	fmt.Println(err)
 }
+
+func TestRegion(t *testing.T) {
+	type Demo struct {
+		Region string `validate:"region"`
+	}
+
+	ve := Demo{
+		Region: "412826"}
+
+	err := validator.Validate(ve)
+	fmt.Println(err)
+
+	ve = Demo{
+		Region: "110000"}
+
+	err = validator.Validate(ve)
+	fmt.Println(err)
+}

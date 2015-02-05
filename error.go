@@ -11,6 +11,7 @@ var (
 	ErrBadParameter = errors.New("错误的验证参数")
 	ErrBadName      = errors.New("必须为可导出")
 
+	ErrNil       = errors.New("字段为空")
 	ErrZeroValue = errors.New("必须非零值")
 	ErrMin       = errors.New("小于最小值")
 	ErrMax       = errors.New("大于最大值")
@@ -20,4 +21,5 @@ var (
 	ErrPhone     = errors.New("电话号码格式不正确")
 	ErrCellPhone = errors.New("手机号码格式不正确")
 	ErrIdCard    = errors.New("身份证号格式不正确")
+	ErrRegion    = errors.New("行政区划编码不正确")
 )
