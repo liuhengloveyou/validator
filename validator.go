@@ -41,6 +41,7 @@ func init() {
 			"cellphone": cellphone,
 			"idcard":    idcardCheck,
 			"region":    regionCheck,
+			"unicn":     unicodecn,
 		},
 	}
 

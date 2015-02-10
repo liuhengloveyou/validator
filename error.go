@@ -22,4 +22,5 @@ var (
 	ErrCellPhone = errors.New("手机号码格式不正确")
 	ErrIdCard    = errors.New("身份证号格式不正确")
 	ErrRegion    = errors.New("行政区划编码不正确")
+	ErrCN        = errors.New("含有非中文字符")
 )

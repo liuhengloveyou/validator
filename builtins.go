@@ -210,7 +210,15 @@ func cellphone(v interface{}, param string) error {
 	return nil
 }
 
- 
+func unicodecn(v interface{}, param string) error {
+	re := "^\\p{Han}+$"
+	err := regex(v, re)
+	if err != nil {
+		return ErrCN
+	}
+	return nil
+}
+
 func asInt(param string) (int64, error) {
 	i, err := strconv.ParseInt(param, 0, 64)
 	if err != nil {

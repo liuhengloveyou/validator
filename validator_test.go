@@ -55,3 +55,18 @@ func TestRegion(t *testing.T) {
 	err = validator.Validate(ve)
 	fmt.Println(err)
 }
+
+func TestCN(t *testing.T) {
+	type Demo struct {
+		Name string `validate:"unicn"`
+		Age  int32  `validate:"unicn"`
+	}
+
+	v1 := &Demo{
+		Name: "小明",
+		Age:  11,
+	}
+
+	e := validator.Validate(v1)
+	fmt.Println(e)
+}
