@@ -70,6 +70,7 @@ validator
 		Only valid for string types, it will validator that the
 		value matches the regular expression provided as parameter.
 		(Usage: regexp=^a.*b$)
+		
 	email
 		验证是否为合法的email字符串格式
 		
