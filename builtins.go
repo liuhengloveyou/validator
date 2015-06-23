@@ -4,12 +4,20 @@ import (
 	"reflect"
 	"regexp"
 	"strconv"
-
 )
 
-func nonzero(v interface{}, param string) error {
+func noneor(v interface{}, param string) error {
+	if err := nonone(v, param); err != nil {
+		return nil
+	}
+
+	return ErrNoneOr
+}
+
+func nonone(v interface{}, param string) error {
 	st := reflect.ValueOf(v)
 	valid := true
+
 	switch st.Kind() {
 	case reflect.String:
 		valid = len(st.String()) != 0
@@ -32,8 +40,9 @@ func nonzero(v interface{}, param string) error {
 	}
 
 	if !valid {
-		return ErrZeroValue
+		return ErrNone
 	}
+
 	return nil
 }
 

@@ -11,8 +11,9 @@ var (
 	ErrBadParameter = errors.New("错误的验证参数")
 	ErrBadName      = errors.New("必须为可导出")
 
+	ErrNoneOr    = errors.New("noneor不可单独使用")
 	ErrNil       = errors.New("字段为空")
-	ErrZeroValue = errors.New("必须非零值")
+	ErrNone      = errors.New("必须非空")
 	ErrMin       = errors.New("小于最小值")
 	ErrMax       = errors.New("大于最大值")
 	ErrLen       = errors.New("长度不对")

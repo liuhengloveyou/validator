@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/liuhengloveyou/validator.cn"
+	"github.com/liuhengloveyou/validator"
 )
 
 type ValidateExample struct {
@@ -60,6 +60,22 @@ func TestCN(t *testing.T) {
 	type Demo struct {
 		Name string `validate:"unicn"`
 		Age  int32  `validate:"unicn"`
+	}
+
+	v1 := &Demo{
+		Name: "小明",
+		Age:  11,
+	}
+
+	e := validator.Validate(v1)
+	fmt.Println(e)
+}
+
+func TestNoneor(t *testing.T) {
+	type Demo struct {
+		Name string `validate:"unicn"`
+		Age  int32  `validate:"noneor"`
+		// Age  int32  `validate:"noneor,min=18"`
 	}
 
 	v1 := &Demo{

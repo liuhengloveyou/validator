@@ -1,4 +1,4 @@
-validator.cn
+validator
 ================
 
 一个有中国特色的数据格式验证包
@@ -6,12 +6,12 @@ validator.cn
 安装
 ===
 
-	go get github.com/liuhengloveyou/validator.cn
+	go get github.com/liuhengloveyou/validator
 
 然后在自己的代码中引用:
 
 	import (
-		"github.com/liuhengloveyou/validator.cn"
+		"github.com/liuhengloveyou/validator"
 	)
 
 用法：
@@ -21,11 +21,11 @@ validator.cn
 
 	type NewUserRequest struct {
 		Username string `validate:"min=3,max=40,regexp=^[a-zA-Z]$"`
-		Name string     `validate:"nonzero"`
+		Name string     `validate:"nonone"`
 		Age int         `validate:"min=21"`
 		Password string `validate:"min=8"`
-		Email string `validate:"email"`
-		IdCard string `validate:"idcard"`
+		Email string    `validate:"email"`
+		IdCard string   `validate:"idcard"`
 	}
 
 	nur := NewUserRequest{Username: "something", Age: 20}
@@ -36,6 +36,15 @@ validator.cn
 
 内置数据验证格式：
 
+	-
+		略过该字段, 不做验证
+
+	noneor
+		字段可以为空, 当它不为空的时候...配合别的规则验证, 不能单独使用
+		
+	nonone
+		验证字段不可为空
+	
 	len
 		For numeric numbers, max will simply make sure that the
 		value is equal to the parameter given. For strings, it
@@ -57,25 +66,25 @@ validator.cn
 		characters. For slices, arrays, and maps, validates the
 		number of items. (Usage: min=10)
 	
-	nonzero
-		This validates that the value is not zero. The appropriate
-		zero value is given by the Go spec (e.g. for int it's 0, for
-		string it's "", for pointers is nil, etc.) Usage: nonzero
-	
 	regexp
 		Only valid for string types, it will validator that the
 		value matches the regular expression provided as parameter.
 		(Usage: regexp=^a.*b$)
 	email
 		验证是否为合法的email字符串格式
+		
 	phone
-		验证是否为合法的电话号码字符串格式
+		验证是否为合法的中国座机电话号码字符串格式
+		
 	cellphone
-		验证是否为合法的手机号码字符串格式
+		验证是否为合法的中国手机号码字符串格式
+		
 	idcard
-		验证是否为合法的身份号码字符串格式
+		验证是否为合法的中国身份证号字符串格式
+		
 	unicn
 		验证是否只包含中文Unicode字符
+		
 
 自定义格式验证
 
