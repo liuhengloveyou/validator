@@ -110,7 +110,7 @@ validator
 就可以用"noZZ"标签做验证了：
 
 	type T struct {
-		A string  `validate:"nonzero,notzz"`
+		A string  `validate:"nonone,notzz"`
 	}
 	t := T{"ZZ"}
 	if valid, errs := validator.Validate(t); !valid {
