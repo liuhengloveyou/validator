@@ -120,6 +120,8 @@ func (p *Validator) validateVar(v interface{}, tagStr string) (err error) {
 			if (tags[i].Name != "noneor") || (i == len(tags)-1) {
 				return
 			}
+		} else if tags[i].Name == "noneor" {
+			break
 		}
 	}
 
